@@ -1,0 +1,24 @@
+Universal Connector Subsystem is in use with ID (UCS0)
+
+
+# Main SoC GPIO
+
+0x0079 (121 decimal)
+
+0x00A6 (166 decimal)
+
+0x00A7 (167 decimal)
+
+0x00A8 (168 decimal)
+
+0x00B0 - 0x00BD (Speaker routing cluster)
+
+# PMIC GPIO (Power Management layer)
+
+0x00D9 (217 decimal)
+
+0x00DA (218 decimal)
+
+0x01A1 (417 decimal)
+
+0x0217 (535 decimal) — Master Reset Pin
