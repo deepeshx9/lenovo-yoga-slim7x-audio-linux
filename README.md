@@ -10,7 +10,8 @@ Warning: Do not run any code on your hardware. This project is extremely experim
 
 Findings (06/04/2026):
   1) UCM files are missing in standard Ubuntu install
-  2) Audio topology is already linked
+  2) Speaker protection is missing in mainline linux
+  3) Audio topology is already linked and loaded
   * Topology: Quad-speaker (2x2 split)
 
   * Enumerators: 2x SoundWire Masters active
