@@ -1,5 +1,7 @@
 #! /bin/bash
 
+echo "Do not run this script. It will permanently damage the hardware!!"
+
 systemctl --user stop wireplumber pipewire pipewire-pulse
 
 amixer -c 0 cset name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia1' 1
