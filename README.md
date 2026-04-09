@@ -1,5 +1,5 @@
 # lenovo-yoga-slim7x-audio-linux
-Audio DSP/UCM port efforts for the Lenovo Yoga Slim 7X (14Q8X9) on Linux    [Hardware damaged counter: 1]
+Audio DSP/UCM port efforts for the Lenovo Yoga Slim 7X (14Q8X9) on Linux 
 
 Warning: Do not run any code on your hardware. This project is extremely experimental and may damage your hardware. This porject provides absolutely no warranty.
 
@@ -29,6 +29,6 @@ Findings (06/04/2026):
 4) Static binary analysis of Windows blobs (.dll/.sys) and ETW required
 
 
-# UCM profiles carried over from the main alsa-ucm-conf project
+# UCM profiles carried over from the main alsa-ucm-conf project (9th April 2026)
 1) UCM profiles merged from main also-ucm-conf upstream project
 2) DSP framework is still incomplete
