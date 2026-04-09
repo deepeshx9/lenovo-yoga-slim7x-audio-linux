@@ -1,5 +1,5 @@
 # lenovo-yoga-slim7x-audio-linux
-Audio DSP/UCM port efforts for the Lenovo Yoga Slim 7X (14Q8X9) on Linux 
+Audio DSP port efforts for the Lenovo Yoga Slim 7X (14Q8X9) on Linux 
 
 Warning: Do not run any code on your hardware. This project is extremely experimental and may damage your hardware. This porject provides absolutely no warranty.
 
