@@ -18,6 +18,8 @@ Findings (06/04/2026):
 
   * Endpoints: 4x WSA8845 Smart Amplifiers
 
+  * Amp Expects: S32_LE @ 48 kHz
+
 
 # Implementation of DSP pseudo-logic and creation of UCM profile (7th April 2026)
 
