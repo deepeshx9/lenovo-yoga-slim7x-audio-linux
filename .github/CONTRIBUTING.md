@@ -8,7 +8,7 @@ This is an experimental, low-level project involving DSP, ALSA UCM, and kernel d
 
 We're currently focusing on a few major bottlenecks:
 
-* **Kernel Driver Patching (`wsa884x.c`):** We need help with proper speaker amp initialization, safe sequencing to prevent hardware damage, and matching Windows' behavior.
+* **Kernel Driver Patching (`wsa884x.c` or `x1e80100.c`):** We need help with proper speaker amp initialization, safe sequencing to prevent hardware damage, and matching Windows' behavior.
 * **Logic port-over from speakersafetyd:** speakersafetyd framework from AsahiLinux (originally meant for Apple Silicon Macs) can be useful in logic review.
 * **DSP Reverse Engineering:** We are trying to understand the proprietary DSP logic from Windows, specifically regarding VISENSE (speaker protection) and SoftClip (dynamic limiting).
 * **DSP Framework Integration:** Porting that logic into the Linux audio pipeline using ALSA, UCM profiles, and topology files.
@@ -26,7 +26,7 @@ To keep things moving smoothly:
 ## Reporting Issues
 
 If you're opening an issue, please include:
-* Device model (e.g., Yoga Slim 7x 14Q8X9)
+* Device model/variant/region (e.g., Yoga Slim 7x 14Q8X9 - IND - 32GB)
 * Kernel version
 * Relevant logs (`dmesg | grep -i audio`)
 * A clear description of the behavior
