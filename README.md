@@ -31,4 +31,5 @@ Findings (06/04/2026):
 
 # UCM profiles carried over from the main alsa-ucm-conf project (9th April 2026)
 1) UCM profiles merged from main also-ucm-conf upstream project
-2) DSP framework is still incomplete (VISENSE / SoftClip not integrated fully)
+2) DSP framework is still incomplete (VISENSE / SoftClip not integrated fully) [speakersafetyd to be ported over]
+
