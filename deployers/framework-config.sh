@@ -18,7 +18,7 @@ C_BOLD='\033[1m'
 C_RESET='\033[0m'
 
 # --- Configuration & System Paths ---
-REPO_URL="https://github.com/master2619/lenovo-yoga-slim7x-audio-linux.git"
+REPO_URL="https://github.com/deepeshx9/lenovo-yoga-slim7x-audio-linux.git"
 TMP_DIR=$(mktemp -d -t alsa-yoga-XXXXXX)
 TIMESTAMP=$(date +%s)
 ROLLBACK_LOG="/tmp/yoga_audio_rollback_${TIMESTAMP}.log"
