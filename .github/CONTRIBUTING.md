@@ -23,7 +23,7 @@ So we are aiming to implement device/board-specific speaker safety math into ker
 
 We are focusing on abstracted replication of raw math first. Then later implementing the same into Pipewire and kernel drivers when confident.
 
-`Abstraction -- then isolated validation -- then Implementation`
+`Abstraction --> then isolated validation --> then Implementation`
 
 ## How to contribute
 
