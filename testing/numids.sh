@@ -16,3 +16,5 @@ amixer -c 0 cset numid=78 3
 amixer -c 0 cset numid=82 4
 amixer -c 0 cset numid=95 3
 amixer -c 0 cset numid=99 4
+
+## snd-soc-x1e80100.i_accept_the_danger=1
