@@ -2,7 +2,7 @@
 
 Thanks for your interest in improving Linux audio support for the Lenovo Yoga Slim 7x. 
 
-This is an experimental, low-level project involving DSP, ALSA UCM, and kernel driver work. Because we are interacting directly with hardware and DSP firmware, **there is a real risk of hardware damage** (specifically blowing out the speakers). There are no guarantees of stability yet. Please test at your own risk.
+This is an experimental, low-level project involving DSP, Pipewire/Wireplumber DSP, ALSA UCM, and kernel driver work. Because we are interacting directly with hardware and DSP firmware, **there is a real risk of hardware damage** (specifically blowing out the speakers). There are no guarantees of stability yet. Please test at your own risk.
 
 ## Where we need help
 
@@ -13,6 +13,11 @@ We're currently focusing on a few major bottlenecks:
 * **DSP Reverse Engineering:** We are trying to understand the proprietary DSP logic from Windows, specifically regarding VISENSE (speaker protection) and SoftClip (dynamic limiting).
 * **DSP Framework Integration:** Porting that logic into the Linux audio pipeline using ALSA, UCM profiles, and topology files.
 * **UCM Configuration:** General cleanup, routing fixes, and validation of `.conf` files.
+
+## Project philosophy
+
+Linux audio stack for smart amp devices is not yet fully mature.
+So we are aiming to implement device/board-specific speaker safety math into kernel mode drivers and the rest DSP and UCM math aligned with the usual Linux stack in userspace.
 
 ## How to contribute
 
