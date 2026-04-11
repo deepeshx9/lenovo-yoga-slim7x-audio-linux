@@ -18,7 +18,7 @@ This project uses a strict separation of concerns, splitting physical hardware p
 * **ALSA UCM Routing:** Implemented (from Upstream alsa-ucm-conf project)
 * **PipeWire DSP Crossover:** Implemented but untested
 * **Kernel VISENSE/SoftClip Math:** In Progress (No guarantees currently)
-* **Speakersafetyd Port:** In Progress (Just cloned the repo till now)
+* **Speakersafetyd Port:** In Progress (Just cloned the repo for now)
 
 ## Installation & Testing
 *Note: You must explicitly pass `snd-soc-x1e80100.i_accept_the_danger=1` to your kernel parameters for these configurations to fully apply.*
