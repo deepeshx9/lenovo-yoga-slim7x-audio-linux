@@ -36,4 +36,6 @@ If you're opening an issue, please include:
 * Relevant logs (`dmesg | grep -i audio`)
 * A clear description of the behavior
 
+If you’ve worked on DSP, audio drivers, or similar systems and see something off in our assumptions, feel free to challenge it.
+
 This is a reverse-engineering-heavy project. Even if you aren't writing kernel code, sharing your hardware logs, traces, or Windows-to-Linux behavior comparisons is incredibly valuable. Thanks for pitching in.
