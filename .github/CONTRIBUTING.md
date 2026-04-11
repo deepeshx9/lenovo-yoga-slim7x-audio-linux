@@ -19,6 +19,10 @@ We're currently focusing on a few major bottlenecks:
 Linux audio stack for smart amp devices is not yet fully mature.
 So we are aiming to implement device/board-specific speaker safety math into kernel mode drivers and the rest DSP and UCM math aligned with the usual Linux stack in userspace.
 
+## Testing approach
+
+We are focusing on abstracted replication of raw math first. Then later implementing the same into Pipewire and kernel drivers when confident.
+
 ## How to contribute
 
 Standard GitHub flow applies: fork, branch, commit, and open a PR. 
