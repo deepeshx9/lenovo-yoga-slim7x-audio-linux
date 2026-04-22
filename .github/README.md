@@ -11,7 +11,7 @@ Currently, upstream Linux distributions default to a "crippled but safe" woofer-
 ## Architecture
 This project uses a strict separation of concerns, splitting physical hardware protection from acoustic user-space tuning:
 
-* **Level 0:** Kernel driver: Should VISENSE and SoftClip in /proc/sound
+* **Level 0:** Kernel driver: Should expose VISENSE and SoftClip in /proc/sound
 * **Level 1:** User-space PipeWire/WirePlumber profiles (`DSP/10-crossover.conf`) and ALSA UCM configurations (`alsa-ucm2-conf/`) replicating the proprietary Dolby Atmos biquad EQ and crossover frequencies. We are thinking of porting over speakersafetyd daemon to this laptop, but it is highly optimistic to be sure about it.
 
 ## Current Status
