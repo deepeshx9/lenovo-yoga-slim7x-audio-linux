@@ -1,4 +1,4 @@
-//! telemetry.rs
+//! monitor.rs
 //!
 //! Slop-pseudocode!
 //!
