@@ -28,3 +28,8 @@ We provide automated deployment scripts in the `/deployers` directory:
 
 ## Contributing
 We are actively looking for help with DSP reverse-engineering, ALSA UCM validation, and kernel fixed-point math. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR or Issue.
+
+## Fun Facts
+The Warning is from caution AND experience (see DEVLOG WiKi)
+
+The Insert button on the keyboard acts as a second power button on the Slim 7X
