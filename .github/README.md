@@ -32,4 +32,4 @@ We are actively looking for help with DSP reverse-engineering, ALSA UCM validati
 ## Fun Facts
 The Warning is from caution AND experience (see DEVLOG WiKi)
 
-The Insert button on the keyboard acts as a second power button on the Slim 7X
+The Insert button on the keyboard acts as a second power button (Novo boot menu) on the Slim 7X
