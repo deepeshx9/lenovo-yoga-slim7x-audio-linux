@@ -1,3 +1,4 @@
+![GitHub Repo stars](https://img.shields.io/github/stars/deepeshx9/lenovo-yoga-slim7x-audio-linux)
 # Audio DSP Hardware Enablement for Lenovo Yoga Slim 7x (Linux)
 
 > **DANGER: HARDWARE DAMAGE RISK **
@@ -33,5 +34,3 @@ We are actively looking for help with DSP reverse-engineering, ALSA UCM validati
 The Warning is from caution AND experience (see DEVLOG WiKi)
 
 The Insert button on the keyboard acts as a second power button (Novo boot menu) on the Slim 7X
-
-![GitHub Repo stars](https://img.shields.io/github/stars/deepeshx9/lenovo-yoga-slim7x-audio-linux)
