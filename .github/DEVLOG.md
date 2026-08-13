@@ -39,3 +39,6 @@ Findings (06/04/2026):
 1) Ghidra and pseudo-C code obtained
 2) Project structure improved
 
+# Upddated telemetry modules (13th of August, 20260
+
+Currently trying to build a telemetry spitting module..
