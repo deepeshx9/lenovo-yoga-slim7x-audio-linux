@@ -1,6 +1,9 @@
 //! monitor.rs
+<<<<<<< Updated upstream
 //!
 //! Slop-pseudocode!
+=======
+>>>>>>> Stashed changes
 //!
 //! Concept module for speakersafetyd telemetry emission.
 //!
@@ -12,15 +15,13 @@
 //! This file is intentionally non-functional and contains no runtime logic.
 //! It is a design scaffold for future implementation.
 
-use std::time::Duration;
+use serde::Serialize;
+use std::os::unix::net::UnixDatagram;
+use std::time::{Duration, Instant};
 
 /// High-level safety state snapshot.
-///
-/// This is the canonical structure shared between:
-/// - safety engine
-/// - telemetry layer
-/// - external visualizers
-#[derive(Debug, Clone)]
+/// Now derives Serialize so it can instantly become JSON.
+#[derive(Debug, Clone, Serialize)]
 pub struct SpeakerState {
     pub mode: SafetyMode,
     pub limit: f32,
@@ -29,8 +30,7 @@ pub struct SpeakerState {
     pub timestamp: f64,
 }
 
-/// Safety operating modes.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 pub enum SafetyMode {
     Normal,
     Limiting,
@@ -38,60 +38,86 @@ pub enum SafetyMode {
 }
 
 /// Trait representing a generic telemetry output backend.
-///
-/// This abstraction allows multiple outputs without coupling:
-/// - UNIX socket (Linux GUI)
-/// - log file
-/// - debugging console
-/// - future NT named pipe backend
 pub trait TelemetrySink {
     fn emit(&self, state: &SpeakerState);
 }
 
-/// Central telemetry controller.
-///
-/// Conceptually responsible for:
-/// - receiving state snapshots from the safety engine
-/// - deciding when to emit (throttle / state-change driven)
-/// - forwarding to a sink
+/// A fire-and-forget UNIX Datagram socket implementation.
+pub struct UdsTelemetrySink {
+    socket: UnixDatagram,
+    target_path: String,
+}
+
+impl UdsTelemetrySink {
+    pub fn new(target_path: &str) -> std::io::Result<Self> {
+        // Bind to an unbound socket for sending datagrams
+        let socket = UnixDatagram::unbound()?;
+        // Set non-blocking just to be absolutely safe
+        socket.set_nonblocking(true)?;
+        
+        Ok(Self {
+            socket,
+            target_path: target_path.to_string(),
+        })
+    }
+}
+
+impl TelemetrySink for UdsTelemetrySink {
+    fn emit(&self, state: &SpeakerState) {
+        // Serialize the state to a JSON string
+        if let Ok(json_string) = serde_json::to_string(state) {
+            // Fire and forget. We intentionally ignore errors (e.g., if the GUI isn't running)
+            let _ = self.socket.send_to(json_string.as_bytes(), &self.target_path);
+        }
+    }
+}
+
+/// Central telemetry controller with actual throttling logic.
 pub struct TelemetryController<S: TelemetrySink> {
     sink: S,
-
-    /// last emitted state (for diff-based emission)
     last_state: Option<SpeakerState>,
-
-    /// emission rate limiter (conceptual)
     min_interval: Duration,
+    last_emit_time: Option<Instant>,
 }
 
 impl<S: TelemetrySink> TelemetryController<S> {
-    /// Create a new telemetry controller.
     pub fn new(sink: S, min_interval: Duration) -> Self {
         Self {
             sink,
             last_state: None,
             min_interval,
+            last_emit_time: None,
         }
     }
 
-    /// Conceptual update entry point.
-    ///
-    /// This is called by the safety engine AFTER state is finalized.
-    ///
-    /// Intended behavior (NOT IMPLEMENTED HERE):
-    /// - compare with last state
-    /// - emit only if changed OR interval elapsed
     pub fn update(&mut self, state: SpeakerState) {
-        // DESIGN NOTE:
-        // In real implementation:
-        // - diff state vs last_state
-        // - enforce min_interval
-        // - optionally batch or queue
+        let now = Instant::now();
+        let mut should_emit = false;
 
-        self.last_state = Some(state.clone());
+        // Condition 1: Time interval elapsed (e.g., 10Hz tick)
+        if let Some(last_time) = self.last_emit_time {
+            if now.duration_since(last_time) >= self.min_interval {
+                should_emit = true;
+            }
+        } else {
+            should_emit = true; // First run
+        }
 
-        self.sink.emit(&state);
+        // Condition 2: Critical state change (e.g., went from Normal to Limiting)
+        // We want to emit immediately, bypassing the throttle, so the GUI feels instant.
+        if let Some(ref last) = self.last_state {
+            if last.mode != state.mode {
+                should_emit = true;
+            }
+        }
+
+        if should_emit {
+            self.sink.emit(&state);
+            self.last_emit_time = Some(now);
+            self.last_state = Some(state);
+        }
     }
+<<<<<<< Updated upstream
 }
 
 /// Conceptual helper: snapshot builder hook.
@@ -148,3 +174,6 @@ pub fn build_snapshot(
 /// - peak/hold metadata
 /// - predictive limiting (headroom forecasting)
 /// - multi-zone speaker telemetry
+=======
+}
+>>>>>>> Stashed changes
