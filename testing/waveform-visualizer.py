@@ -19,16 +19,16 @@ try:
         datagram = server.recv(1024)
         if not datagram:
             break
-            
+
         # Decode the JSON directly into a Python dictionary
         state = json.loads(datagram.decode('utf-8'))
-        
+
         # Example GUI logic trigger
         if state["mode"] == "Limiting":
-            print(f"🚨 WARNING: Gain Reduced by {state['gain_reduction']}dB! 🚨")
+            print(f"WARNING: Gain Reduced by {state['gain_reduction']}dB!")
         else:
             print(f"Normal | Headroom: {state['headroom']}")
-            
+
 except KeyboardInterrupt:
     print("Shutting down visualizer...")
 finally:

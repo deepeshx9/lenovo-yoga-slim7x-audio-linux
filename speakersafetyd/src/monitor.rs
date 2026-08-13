@@ -1,20 +1,3 @@
-//! monitor.rs
-<<<<<<< Updated upstream
-//!
-//! Slop-pseudocode!
-=======
->>>>>>> Stashed changes
-//!
-//! Concept module for speakersafetyd telemetry emission.
-//!
-//! This module defines the *interface + architecture* for exporting
-//! safety state (limit, mode, gain reduction, etc.) to external consumers
-//! such as GUI visualizers.
-//!
-//! NOTE:
-//! This file is intentionally non-functional and contains no runtime logic.
-//! It is a design scaffold for future implementation.
-
 use serde::Serialize;
 use std::os::unix::net::UnixDatagram;
 use std::time::{Duration, Instant};
@@ -117,63 +100,4 @@ impl<S: TelemetrySink> TelemetryController<S> {
             self.last_state = Some(state);
         }
     }
-<<<<<<< Updated upstream
 }
-
-/// Conceptual helper: snapshot builder hook.
-///
-/// In the real system, this would be called from the safety engine
-/// after limiter + protection logic has fully resolved.
-pub fn build_snapshot(
-    mode: SafetyMode,
-    limit: f32,
-    gain_reduction: f32,
-) -> SpeakerState {
-    SpeakerState {
-        mode,
-        limit,
-        gain_reduction,
-        headroom: 1.0 - limit,
-        timestamp: 0.0, // placeholder (would be system time)
-    }
-}
-
-/// ---- DESIGN NOTES ----
-///
-/// Injection points in the Rust codebase:
-///
-/// 1. SAFETY STATE TRANSITION:
-///    - call TelemetryController::update() whenever state changes
-///
-/// 2. MAIN UPDATE LOOP (fallback):
-///    - periodic snapshot emission (e.g., 10–20 Hz)
-///
-/// 3. NEVER:
-///    - per-sample DSP
-///    - inner clamp math
-///    - audio callback threads
-///
-///
-/// Data flow concept:
-///
-///     audio/safety engine
-///             ↓
-///      state machine resolves
-///             ↓
-///     build_snapshot()
-///             ↓
-///  TelemetryController::update()
-///             ↓
-///      TelemetrySink (UNIX socket)
-///             ↓
-///     Python visualizer (GUI)
-///
-///
-/// Future extensions:
-/// - gain reduction history buffer
-/// - peak/hold metadata
-/// - predictive limiting (headroom forecasting)
-/// - multi-zone speaker telemetry
-=======
-}
->>>>>>> Stashed changes
